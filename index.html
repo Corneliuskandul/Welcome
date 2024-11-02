@@ -1,0 +1,261 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Popup</title>
+    <style>
+        /* Basic styling for the page and link */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
+        .welcome-link {
+            text-decoration: none;
+            font-size: 24px;
+            color: #3498db;
+            font-weight: bold;
+            position: relative;
+            animation: bounce 1s infinite;
+            transition: color 0.3s;
+        }
+
+        .welcome-link:hover {
+            color: #2980b9;
+        }
+
+        /* Keyframe for bouncing animation */
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Styling for the popup message */
+        .popup {
+            display: none; /* Initially hidden */
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #ffffff;
+            padding: 20px;
+            border: 2px solid #3498db;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .popup h2 {
+            margin: 0;
+            font-size: 20px;
+            color: #333333;
+        }
+
+        .close-btn {
+            display: block;
+            margin-top: 15px;
+            padding: 5px 10px;
+            background-color: #3498db;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .close-btn:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+
+<a href="#" class="welcome-link" onclick="showPopup()">Click Here to Join the Welcome Message!</a>
+
+<div id="popup" class="popup">
+    <h2>Welcome, all group members!</h2>
+    <p>We’re glad to have you here!</p>
+    <button class="close-btn" onclick="closePopup()">Close</button>
+</div>
+
+<script>
+    function showPopup() {
+        document.getElementById("popup").style.display = "block";
+    }
+
+    function closePopup() {
+        document.getElementById("popup").style.display = "none";
+    }
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Festive Welcome Popup</title>
+    <style>
+        /* Basic styling for the page */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fad0c4, #ffd1ff);
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+
+        /* Welcome link styling */
+        .welcome-link {
+            text-decoration: none;
+            font-size: 24px;
+            color: #ffffff;
+            font-weight: bold;
+            background: linear-gradient(90deg, #ff6b6b, #f8e71c, #32b3a8);
+            -webkit-background-clip: text;
+            color: transparent;
+            animation: colorPulse 2s infinite;
+            cursor: pointer;
+        }
+
+        /* Link color pulse animation */
+        @keyframes colorPulse {
+            0%, 100% { filter: brightness(1); }
+            50% { filter: brightness(1.3); }
+        }
+
+        /* Styling for 3D popup box */
+        .popup {
+            display: none; /* Initially hidden */
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.5);
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            animation: popupAppear 0.5s forwards ease-out;
+        }
+
+        /* Popup transition */
+        @keyframes popupAppear {
+            0% { opacity: 0; transform: translate(-50%, -50%) scale(0); }
+            100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+        }
+
+        /* 3D text effect for the welcome message */
+        .popup h2 {
+            margin: 0;
+            font-size: 2rem;
+            color: #333;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3), -2px -2px 4px rgba(255, 255, 255, 0.3);
+            transform: rotateX(20deg);
+            animation: text3D 1s ease-out;
+        }
+
+        /* 3D effect for text */
+        @keyframes text3D {
+            0% { transform: rotateX(90deg); opacity: 0; }
+            100% { transform: rotateX(20deg); opacity: 1; }
+        }
+
+        /* Balloon styling */
+        .balloons {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            width: 100%;
+            height: 100vh;
+            pointer-events: none;
+            overflow: hidden;
+            transform: translateX(-50%);
+        }
+
+        .balloon {
+            position: absolute;
+            width: 40px;
+            height: 60px;
+            background: radial-gradient(circle, #ff6b6b, #f06595);
+            border-radius: 50% 50% 50% 50%;
+            animation: float 5s ease-in-out infinite;
+        }
+
+        .balloon::before {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            width: 2px;
+            height: 20px;
+            background: #888;
+        }
+
+        /* Balloon floating animation */
+        @keyframes float {
+            0% { transform: translateY(100vh) translateX(0); }
+            100% { transform: translateY(-100vh) translateX(50px); }
+        }
+
+        /* Close button styling */
+        .close-btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 15px;
+            background-color: #32b3a8;
+            color: #ffffff;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .close-btn:hover {
+            background-color: #27a189;
+        }
+    </style>
+</head>
+<body>
+
+<a href="#" class="welcome-link" onclick="showPopup()">🎉 Click Here for a Warm Welcome! 🎉</a>
+
+<div id="popup" class="popup">
+    <h2>Cornelius Kandulu Welcomes You All!</h2>
+    <p>Enjoy your stay, and feel at home in our group!</p>
+    <button class="close-btn" onclick="closePopup()">Close</button>
+</div>
+
+<div class="balloons">
+    <div class="balloon" style="left: 10%; animation-duration: 6s;"></div>
+    <div class="balloon" style="left: 30%; animation-duration: 5s;"></div>
+    <div class="balloon" style="left: 50%; animation-duration: 7s;"></div>
+    <div class="balloon" style="left: 70%; animation-duration: 4s;"></div>
+    <div class="balloon" style="left: 90%; animation-duration: 6s;"></div>
+</div>
+
+<script>
+    function showPopup() {
+        document.getElementById("popup").style.display = "block";
+    }
+
+    function closePopup() {
+        document.getElementById("popup").style.display = "none";
+    }
+</script>
+
+</body>
+</html>
+
